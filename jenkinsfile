@@ -18,5 +18,12 @@ pipeline {
                 bat 'gradlew build -x test'
             }
         }
+
+        stage('Test') {
+            steps{
+                echo "------------> Build <------------"
+                bat 'gradlew test'
+            }
+        }
     }
 }
