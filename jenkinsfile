@@ -26,10 +26,24 @@ pipeline {
             }
         }
 
-        stage('Serenity-Report') {
+        stage('Serenity Report') {
             steps{
                 echo "------------> Generate report <------------"
                 bat 'gradlew aggregate'
+            }
+        }
+
+        stage('publish report'){
+            steps {
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target/site/serenity',
+                    reportFiles: 'index.html',
+                    reportName: 'Serenity-BDD',
+                    reportTitles: ''
+                ])
             }
         }
     }
