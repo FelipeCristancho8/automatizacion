@@ -41,7 +41,7 @@ pipeline {
                     keepAll: true,
                     reportDir: 'target/site/serenity',
                     reportFiles: 'index.html',
-                    reportName: 'Serenity-BDD',
+                    reportName: 'Serenity BDD',
                     reportTitles: ''
                 ])
             }
